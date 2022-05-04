@@ -12,8 +12,8 @@ using ProyectoSoftWare_2022.Data.Models;
 namespace ProyectoSoftWare_2022.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220429122209_datos6")]
-    partial class datos6
+    [Migration("20220430153807_datos-ConConsultas")]
+    partial class datosConConsultas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,13 @@ namespace ProyectoSoftWare_2022.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EstadoDeAlquileresId")
+                        .HasColumnType("int")
+                        .HasColumnName("EstadoId");
+
                     b.Property<DateTime?>("FechaAlquiler")
                         .IsRequired()
                         .HasColumnType("datetime2");
@@ -48,22 +55,13 @@ namespace ProyectoSoftWare_2022.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("clienteId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("estadoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("estadosEstadoId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("EstadoDeAlquileresId");
+
                     b.HasIndex("IsbnId");
-
-                    b.HasIndex("clienteId");
-
-                    b.HasIndex("estadosEstadoId");
 
                     b.ToTable("alquileres");
                 });
@@ -278,29 +276,29 @@ namespace ProyectoSoftWare_2022.Migrations
 
             modelBuilder.Entity("ProyectoSoftWare_2022.Data.Models.Alquileres", b =>
                 {
-                    b.HasOne("ProyectoSoftWare_2022.Data.Models.Libros", "ISBN")
+                    b.HasOne("ProyectoSoftWare_2022.Data.Models.Cliente", "Cliente")
+                        .WithMany("Alquiler_C")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoSoftWare_2022.Data.Models.EstadoDeAlquileres", "EstadoDeAlquleres")
+                        .WithMany("Alquileres_EA")
+                        .HasForeignKey("EstadoDeAlquileresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoSoftWare_2022.Data.Models.Libros", "Isbn")
                         .WithMany("alquileres_L")
                         .HasForeignKey("IsbnId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProyectoSoftWare_2022.Data.Models.Cliente", "clientes")
-                        .WithMany("Alquiler_C")
-                        .HasForeignKey("clienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Cliente");
 
-                    b.HasOne("ProyectoSoftWare_2022.Data.Models.EstadoDeAlquileres", "estados")
-                        .WithMany("Alquileres_EA")
-                        .HasForeignKey("estadosEstadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("EstadoDeAlquleres");
 
-                    b.Navigation("ISBN");
-
-                    b.Navigation("clientes");
-
-                    b.Navigation("estados");
+                    b.Navigation("Isbn");
                 });
 
             modelBuilder.Entity("ProyectoSoftWare_2022.Data.Models.Cliente", b =>

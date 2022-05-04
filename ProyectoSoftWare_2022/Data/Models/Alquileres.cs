@@ -9,22 +9,22 @@ using System.ComponentModel.DataAnnotations;
 namespace ProyectoSoftWare_2022.Data.Models
 {
     class Alquileres
-    {   
+    {
         public int Id { get; set; }
 
         [ForeignKey("ClienteId")]
-        public virtual int clienteId { get; set; }  
-        public virtual Cliente? clientes { get; set; } = null;
+        public int ClienteId { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
-
+        [Column("EstadoId")]
         [ForeignKey("EstadoId")]
-        public virtual int estadoId { get; set; }
-        public virtual EstadoDeAlquileres estados { get; set; } = null;
+        public int EstadoDeAlquileresId { get; set; }
+        public virtual EstadoDeAlquileres EstadoDeAlquleres { get; set; } = null;
 
 
         [ForeignKey("ISBN")]
-        public virtual string IsbnId { get; set; }
-        public virtual Libros? ISBN { get; set; } = null;
+        public string IsbnId { get; set; }
+        public virtual Libros? Isbn { get; set; } = null;
 
 
         public DateTime? FechaAlquiler { get; set; } = null;

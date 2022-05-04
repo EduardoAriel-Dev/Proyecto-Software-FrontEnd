@@ -17,7 +17,7 @@ namespace ProyectoSoftWare_2022.Data.Commans
             ValidarCliente Validar = new ValidarCliente();
             Cliente cliente = new Cliente();
 
-
+            
             if ((Validar.Valido(_nombre, _apellido, _dni, _email)) == true)
             {
                 cliente.Nombre = _nombre;

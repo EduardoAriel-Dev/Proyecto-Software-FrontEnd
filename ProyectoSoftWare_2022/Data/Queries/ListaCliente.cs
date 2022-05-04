@@ -24,5 +24,12 @@ namespace ProyectoSoftWare_2022.Data.Queries
                 return Contexto.clientes.Where(X => X.DNI == _dni).FirstOrDefault();
             }
         }
+        public Cliente ListaCliente_Id(int _ClienteId)
+        {
+            using (var Contexto = new MyDbContext())
+            {
+                return Contexto.clientes.Where(X => X.ClienteId == _ClienteId).FirstOrDefault();
+            }
+        }
     }
 }

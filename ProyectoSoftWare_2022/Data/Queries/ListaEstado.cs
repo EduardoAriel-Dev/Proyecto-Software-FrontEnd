@@ -25,5 +25,12 @@ namespace ProyectoSoftWare_2022.Data.Queries
                 return Contexto.estadoDeAlquileres.Where(X => X.Descripcion == _Descripcion).FirstOrDefault();
             }
         }
+        public EstadoDeAlquileres Estado_Id(int _estadoId)
+        {
+            using (var Contexto = new MyDbContext())
+            {
+                return Contexto.estadoDeAlquileres.Where(X => X.EstadoId == _estadoId).FirstOrDefault();
+            }
+        }
     }
 }

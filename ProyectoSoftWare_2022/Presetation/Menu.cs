@@ -42,9 +42,13 @@ namespace ProyectoSoftWare_2022.Presetation
                             NuevoAlquiler nuevoAlquiler = new NuevoAlquiler();
                             nuevoAlquiler.Nuevo_Alquiler();
                             break;
-                        case 3:                            
+                        case 3:
+                            NuevaReserva nuevaReserva = new NuevaReserva();
+                            nuevaReserva.Nuevo_Reserva();
                             break;
                         case 4:
+                            ListaLibrosReservados listaLibrosReservados = new ListaLibrosReservados();
+                            listaLibrosReservados.ListLibroReservado();
                             break;
                         case 5:
                             LibroEnStock libro_stock = new LibroEnStock();

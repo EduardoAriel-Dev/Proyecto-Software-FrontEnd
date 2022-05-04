@@ -10,16 +10,16 @@ using ProyectoSoftWare_2022.Application.ControllerLibro;
 using ProyectoSoftWare_2022.Data.Queries;
 using ProyectoSoftWare_2022.Data.Commans;
 
-
 namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
 {
-    class NuevoAlquiler
+    class NuevaReserva
     {
-        public void Nuevo_Alquiler()
+        public void Nuevo_Reserva()
         {
             Console.Clear();
             Menu _menu = new Menu();
-            CrearAlquiler crearAlquiler = new CrearAlquiler();
+            CrearReserva crearReserva = new CrearReserva();
+
 
             //Verificar Datos
             ValidarDNI validarDNI = new ValidarDNI();
@@ -27,9 +27,9 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
             //--------
 
             //Creo las clases para los IDs
-            Cliente cliente_Alquiler = new Cliente();
-            Libros libros_Alquiler = new Libros();
-            EstadoDeAlquileres estado_Alquiler = new EstadoDeAlquileres();
+            Cliente cliente_Reserva = new Cliente();
+            Libros libros_Reserva = new Libros();
+            EstadoDeAlquileres estado_Reservado = new EstadoDeAlquileres();
             //--------
 
             //Lista de los Objetos
@@ -38,9 +38,9 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
             ListaEstado listaEstado = new ListaEstado();
             //-------
 
-            DateTime DiaHoy = DateTime.Now;
-            bool Alquilado = false;
-            while (!Alquilado)
+            DateTime DiaHoy_Reservado = DateTime.Now;
+            bool Reservado = false;
+            while (!Reservado)
             {
                 try
                 {
@@ -49,7 +49,7 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
                     string _dni = _dni_Valido.ToString();
                     if (!validarDNI._dniValido(_dni))
                     {
-                        cliente_Alquiler = new ListaCliente().Cliente_Idx(_dni);
+                        cliente_Reserva = new ListaCliente().Cliente_Idx(_dni);
 
                     }
                     else
@@ -74,7 +74,7 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
 
                     if (!validarISBN._ISBN_Valido(_ISBN))
                     {
-                        libros_Alquiler = new QueriesLibrosStock().Libro_Idx(_ISBN);
+                        libros_Reserva = new QueriesLibrosStock().Libro_Idx(_ISBN);
                     }
                     else
                     {
@@ -82,19 +82,18 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
                         Console.ReadKey();
                         _menu._MENU();
                     }
-                    estado_Alquiler = listaEstado.Estado_Idx("Alquilado");
-                    Alquileres alquiler = crearAlquiler._CrearAlquiler(cliente_Alquiler,estado_Alquiler,libros_Alquiler,DiaHoy,DiaHoy.AddDays(7));
-                    
+
+                    estado_Reservado = listaEstado.Estado_Idx("Reservado");                                          //Dia Alquiler, Dia Devolucion
+                    Alquileres alquiler = crearReserva._CrearReserva(cliente_Reserva, estado_Reservado, libros_Reserva, DiaHoy_Reservado);
                     if (alquiler != null)
-                    {
-                        libros_Alquiler.Stock -= 1;
-                        Console.WriteLine("Alquiler Realizado con exito");                       
+                    {                    
+                        Console.WriteLine("Reservado Realizado con exito");
                     }
-                    Alquilado = true;
+                    Reservado = true;
                     Console.ReadKey();
                     _menu._MENU();
 
-                }   
+                }
                 catch (Exception)
                 {
                     Console.WriteLine("ALGO PASO");

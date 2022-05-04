@@ -16,10 +16,10 @@ namespace ProyectoSoftWare_2022.Data.Settings
             BuilderAlq.HasKey(X => X.Id);
 
             //Others Entitys.
-            BuilderAlq.Property(X => X.FechaAlquiler).IsRequired();
-            BuilderAlq.Property(X => X.FechaDevolucion).IsRequired();
-            BuilderAlq.Property(X => X.FechaReserva).IsRequired();
-         
+            BuilderAlq.Property(X => X.FechaAlquiler);
+            BuilderAlq.Property(X => X.FechaDevolucion);
+            BuilderAlq.Property(X => X.FechaReserva);
+            
         }
     }
 }
