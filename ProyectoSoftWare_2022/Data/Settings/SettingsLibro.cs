@@ -24,10 +24,6 @@ namespace ProyectoSoftWare_2022.Data.Settings
             BuilderLibros.Property(X => X.Stock).IsRequired();
             BuilderLibros.Property(X => X.Imagen).HasMaxLength(100).IsRequired();
 
-            //Foraing Key.
-            // BuilderLibros.HasMany(X => X.alquileres_L).WithOne(Z => Z.ISBNId).HasForeignKey(X => X.Id);
-            //Esto no se si esta bien.
-
             BuilderLibros.HasData(new Libros
             {
                 ISBN = "1407134612",

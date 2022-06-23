@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProyectoSoftWare_2022.Data.Models;
-
+﻿using ProyectoSoftWare_2022.Data.Models;
 
 namespace ProyectoSoftWare_2022.Data.Commans
 {
@@ -19,12 +13,9 @@ namespace ProyectoSoftWare_2022.Data.Commans
 
                 Alquileres alquileres = new Alquileres();              
 
-                alquileres.ClienteId = _cliente_Id.ClienteId;
-                //alquileres.clientes = _cliente_Id;                  
+                alquileres.ClienteId = _cliente_Id.ClienteId;               
                 alquileres.IsbnId = _libro_idx.ISBN;
-                //alquileres.ISBN = _libro_idx;
                 alquileres.EstadoDeAlquileresId = 2;
-                //alquileres.estados = _estado_Id;
                 alquileres.FechaAlquiler = null;
                 alquileres.FechaReserva = _fechareserva;
                 alquileres.FechaDevolucion = null;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ProyectoSoftWare_2022.Data.Settings;
 
 namespace ProyectoSoftWare_2022.Data.Models
@@ -16,7 +11,7 @@ namespace ProyectoSoftWare_2022.Data.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=M_9_DeJulio;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=M9_DeJulio;Trusted_Connection=True;");
             //Conexion a la base de datos (aca podes tener mas de 1)
         }
         protected override void OnModelCreating(ModelBuilder Modelos)

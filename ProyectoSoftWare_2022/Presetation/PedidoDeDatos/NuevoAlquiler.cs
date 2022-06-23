@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProyectoSoftWare_2022.Data.Models;
+﻿using ProyectoSoftWare_2022.Data.Models;
 using ProyectoSoftWare_2022.Presetation;
 using ProyectoSoftWare_2022.Application.ControllerCliente;
 using ProyectoSoftWare_2022.Application.ControllerLibro;
@@ -76,6 +71,7 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
                     {
                         libros_Alquiler = new QueriesLibrosStock().Libro_Idx(_ISBN);
                     }
+
                     else
                     {
                         Console.WriteLine("El Libro no Existe: ");
@@ -84,12 +80,7 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
                     }
                     estado_Alquiler = listaEstado.Estado_Idx("Alquilado");
                     Alquileres alquiler = crearAlquiler._CrearAlquiler(cliente_Alquiler,estado_Alquiler,libros_Alquiler,DiaHoy,DiaHoy.AddDays(7));
-                    
-                    if (alquiler != null)
-                    {
-                        libros_Alquiler.Stock -= 1;
-                        Console.WriteLine("Alquiler Realizado con exito");                       
-                    }
+                   
                     Alquilado = true;
                     Console.ReadKey();
                     _menu._MENU();

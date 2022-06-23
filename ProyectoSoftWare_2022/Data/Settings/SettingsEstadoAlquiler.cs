@@ -18,9 +18,6 @@ namespace ProyectoSoftWare_2022.Data.Settings
             //Others Entitys.
             BuilderE_D_A.Property(X => X.Descripcion).HasMaxLength(45).IsRequired();
 
-            //Foraing Key.
-            //BuilderE_D_A.HasMany(X => X.Alquileres_EA).WithOne(Z => Z.estadosId).HasForeignKey(X => X.Id);
-            //Esto no se si esta del todo bien hecho.
 
             BuilderE_D_A.HasData(new EstadoDeAlquileres
             {

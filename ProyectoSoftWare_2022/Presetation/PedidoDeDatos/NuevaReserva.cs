@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProyectoSoftWare_2022.Data.Models;
+﻿using ProyectoSoftWare_2022.Data.Models;
 using ProyectoSoftWare_2022.Presetation;
 using ProyectoSoftWare_2022.Application.ControllerCliente;
 using ProyectoSoftWare_2022.Application.ControllerLibro;
@@ -58,8 +53,6 @@ namespace ProyectoSoftWare_2022.Application.ControllerAlquiler
                         Console.ReadKey();
                         _menu._MENU();
                     }
-
-
 
                     Console.WriteLine("Lista de Libros Disponibles");
                     foreach (Libros l in ListLibro)

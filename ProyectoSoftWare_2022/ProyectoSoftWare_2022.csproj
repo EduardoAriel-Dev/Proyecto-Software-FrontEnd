@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\ControllerEstado\" />
+    <Folder Include="Application\ControllerAlquiler\" />
   </ItemGroup>
 
 </Project>

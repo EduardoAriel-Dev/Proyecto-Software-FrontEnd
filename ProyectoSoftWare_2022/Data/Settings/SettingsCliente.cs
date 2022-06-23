@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProyectoSoftWare_2022.Data.Models;
 
 namespace ProyectoSoftWare_2022.Data.Settings
@@ -21,9 +16,6 @@ namespace ProyectoSoftWare_2022.Data.Settings
             BuilderCliente.Property(X => X.Apellido).HasMaxLength(45).IsRequired();
             BuilderCliente.Property(X => X.Email).HasMaxLength(45).IsRequired();
 
-            //Foraing Key.
-            // BuilderCliente.HasMany(X => X.Alquiler_C).WithOne(Z => Z.clientesId).HasForeignKey(X => X.Id);
-            //Esto no se si esta del todo bien hecho.
         }
     }
 }

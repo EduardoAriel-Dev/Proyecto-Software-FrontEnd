@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProyectoSoftWare_2022.Application.ControllerCliente;
+﻿using ProyectoSoftWare_2022.Application.ControllerCliente;
 using ProyectoSoftWare_2022.Application.ControllerLibro;
 using ProyectoSoftWare_2022.Application.ControllerAlquiler;
 

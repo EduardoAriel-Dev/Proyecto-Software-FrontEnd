@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProyectoSoftWare_2022.Presetation;
 using ProyectoSoftWare_2022.Data.Models;
 using ProyectoSoftWare_2022.Data.Queries;
@@ -28,7 +25,6 @@ namespace ProyectoSoftWare_2022.Application.ControllerLibro
                 Console.WriteLine("Editorial" + X.Editorial);
                 Console.WriteLine("Edicion" + X.Edicion);
                 Console.WriteLine("Imagen" + X.Imagen);
-                //Console.WriteLine("El libro " + X.Titulo + " tiene disponible " + X.Stock + " Ejemplares");
                 Console.WriteLine("--------------------------------------------------\n\n");
 
             }

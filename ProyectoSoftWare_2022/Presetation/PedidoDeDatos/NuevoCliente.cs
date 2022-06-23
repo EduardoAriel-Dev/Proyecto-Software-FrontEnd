@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProyectoSoftWare_2022.Presetation;
+﻿using ProyectoSoftWare_2022.Presetation;
 using ProyectoSoftWare_2022.Data.Models;
 using ProyectoSoftWare_2022.Data.Commans;
 
@@ -31,7 +26,7 @@ namespace ProyectoSoftWare_2022.Application.ControllerCliente
                     Console.WriteLine("Ingrese su DNI.");
                     int Verificador = int.Parse(Console.ReadLine());
                     DNI = Verificador.ToString();
-                    if (_ValidarDNI._dniValido(DNI) == true)
+                    if (_ValidarDNI._dniValido(DNI))
                     {
                         Console.WriteLine("Ingrese su Nombre.");
                         Nombre = Console.ReadLine();
@@ -41,12 +36,17 @@ namespace ProyectoSoftWare_2022.Application.ControllerCliente
                         Email = Console.ReadLine();
                         Verifycarted = true;
                         crearcliente._CrearCliente(Nombre, Apellido, DNI, Email);
+                        Console.WriteLine("Datos Guardados");
                         Console.ReadKey();
                    }
+                    else
+                    {
+                        Console.WriteLine("El DNI ya existe");
+                    }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Uno de los datos es erroneo.");
+                    Console.WriteLine("Datos Erroneos");
                 }
             }
             Console.Clear();

@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.Sql;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using ProyectoSoftWare_2022.Presetation;
+﻿using ProyectoSoftWare_2022.Presetation;
 
 
 namespace ProyectoSoftware_2022
